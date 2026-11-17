@@ -35,22 +35,84 @@
   tick(); setInterval(tick, 1000);
 
   /* ---------- Add to calendar (.ics) ---------- */
-  $("#addToCal").addEventListener("click", () => {
+  function downloadIcs(venues, filename) {
     const fmt = (d) => new Date(d).toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
     const icsEsc = (s) => String(s).replace(/([,;\\])/g, "\\$1");
-    const events = W.venues.map((v, i) => [
-      "BEGIN:VEVENT", `UID:${fmt(v.start)}-${i}@wedding`, `DTSTAMP:${fmt(Date.now())}`, `DTSTART:${fmt(v.start)}`, `DTEND:${fmt(v.end)}`,
+    const events = venues.map((v, i) => [
+      "BEGIN:VEVENT", `UID:${fmt(v.start)}-${i}@samay`, `DTSTAMP:${fmt(Date.now())}`, `DTSTART:${fmt(v.start)}`, `DTEND:${fmt(v.end)}`,
       `SUMMARY:${icsEsc(`${v.event}: ${W.groomFull} & ${W.brideFull}`)}`,
       `LOCATION:${icsEsc(`${v.name}, ${v.address}`)}`,
       `DESCRIPTION:${icsEsc(`${v.time}. Map: ${v.mapUrl} — Details & RSVP: ${location.href.split("#")[0]}`)}`,
       "END:VEVENT",
     ].join("\r\n"));
-    const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Wedding//EN", ...events, "END:VCALENDAR"].join("\r\n");
+    const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//SaMay//EN", ...events, "END:VCALENDAR"].join("\r\n");
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }));
-    a.download = "wedding.ics"; a.click();
+    a.download = filename; a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  }
+  $("#addToCal").addEventListener("click", () => downloadIcs(W.venues, "samay-wedding.ics"));
+  $("#addToCal2").addEventListener("click", () => downloadIcs([W.venues[0]], "samay-biye.ics"));
+  $("#dateMuhurta").textContent = W.muhurta ? `Lagna ${W.muhurta}` : "Muhurta (লগ্ন) to be announced";
+
+  /* ---------- Opening gate ---------- */
+  const gate = $("#gate"), reclose = $("#gateReclose");
+  function openGate() {
+    if (gate.classList.contains("opening")) return;
+    gate.classList.add("opening");
+    document.body.classList.remove("gated");
+    setTimeout(() => { gate.hidden = true; reclose.hidden = false; }, 1800);
+  }
+  function closeGate() {
+    reclose.hidden = true; gate.hidden = false;
+    window.scrollTo(0, 0);
+    document.body.classList.add("gated");
+    requestAnimationFrame(() => requestAnimationFrame(() => gate.classList.remove("opening")));
+  }
+  gate.addEventListener("click", openGate);
+  gate.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openGate(); } });
+  reclose.addEventListener("click", closeGate);
+  // Deep links (e.g. …/#rsvp from a reminder message) skip the gate
+  if (location.hash && location.hash.length > 1) { gate.classList.add("opening"); gate.hidden = true; document.body.classList.remove("gated"); reclose.hidden = false; }
+  else gate.focus({ preventScroll: true });
+
+  /* ---------- Scratch to reveal ---------- */
+  const scratches = $$(".scratch");
+  const detail = $("#dateDetail");
+  function markDone(s) {
+    s.classList.add("done");
+    if (scratches.every((x) => x.classList.contains("done"))) { detail.classList.add("show"); $("#scratchRow").parentElement.classList.add("scratch-done-all"); }
+  }
+  scratches.forEach((s) => {
+    const cv = s.querySelector("canvas"), ctx = cv.getContext("2d");
+    const ratio = window.devicePixelRatio || 1;
+    function paint() {
+      const w = cv.offsetWidth, h = cv.offsetHeight;
+      cv.width = w * ratio; cv.height = h * ratio; ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+      const g = ctx.createLinearGradient(0, 0, w, h);
+      g.addColorStop(0, "#f3dc9c"); g.addColorStop(.45, "#c9973e"); g.addColorStop(.55, "#e8c877"); g.addColorStop(1, "#9b7031");
+      ctx.fillStyle = g; ctx.beginPath(); ctx.roundRect ? ctx.roundRect(0, 0, w, h, 12) : ctx.rect(0, 0, w, h); ctx.fill();
+      ctx.fillStyle = "rgba(255,255,255,.55)";
+      for (let i = 0; i < 26; i++) { ctx.beginPath(); ctx.arc(Math.random() * w, Math.random() * h, Math.random() * 1.6 + .4, 0, 7); ctx.fill(); }
+      ctx.fillStyle = "rgba(90,60,20,.75)"; ctx.font = "italic 15px 'Cormorant Garamond', serif"; ctx.textAlign = "center"; ctx.fillText("scratch", w / 2, h / 2 + 5);
+      ctx.globalCompositeOperation = "destination-out";
+    }
+    paint();
+    let down = false, moves = 0;
+    const scratchAt = (e) => {
+      const r = cv.getBoundingClientRect();
+      ctx.beginPath(); ctx.arc(e.clientX - r.left, e.clientY - r.top, 16, 0, 7); ctx.fill();
+      if (++moves % 8 === 0) {
+        const d = ctx.getImageData(0, 0, cv.width, cv.height).data;
+        let clear = 0; for (let i = 3; i < d.length; i += 16) if (d[i] === 0) clear++;
+        if (clear / (d.length / 16) > 0.45) markDone(s);
+      }
+    };
+    cv.addEventListener("pointerdown", (e) => { down = true; cv.setPointerCapture(e.pointerId); scratchAt(e); });
+    cv.addEventListener("pointermove", (e) => { if (down) scratchAt(e); });
+    ["pointerup", "pointercancel"].forEach((ev) => cv.addEventListener(ev, () => { down = false; }));
   });
+  $("#revealAll").addEventListener("click", () => scratches.forEach(markDone));
 
   /* ---------- Venues + maps ---------- */
   $("#venueList").innerHTML = W.venues.map((v) => {
@@ -70,12 +132,26 @@
   }).join("");
 
   /* ---------- Timeline ---------- */
-  $("#timelineList").innerHTML = W.events.map((e) => `
+  $("#timelineList").innerHTML = W.events.map((e, i) => `
     <li class="reveal">
-      <div class="when">${esc(e.date)} · ${esc(e.time || TBA)}</div>
-      <h3>${esc(e.name)}</h3>
-      <p>${esc(e.place)}${e.note ? " — " + esc(e.note) : ""}</p>
+      <div class="art"><svg viewBox="0 0 160 ${e.art === "mandap" ? 130 : 110}" aria-hidden="true"><use href="#i-${esc(e.art || "thali")}"/></svg></div>
+      <span class="dot"></span>
+      <div class="txt">
+        <div class="d">${esc(e.date)}</div>
+        <div class="t${e.time ? "" : " tba"}">${esc(e.time || TBA)}</div>
+        <p class="n">${esc(e.name)}</p>
+        ${e.bn ? `<p class="bn">${esc(e.bn)}</p>` : ""}
+        <p class="p">${esc(e.place)}</p>
+        ${e.note ? `<p class="note">${esc(e.note)}</p>` : ""}
+        ${e.start ? `<button class="cal" data-ev="${i}">Add to calendar</button>` : ""}
+      </div>
     </li>`).join("");
+  $("#timelineList").addEventListener("click", (ev) => {
+    const b = ev.target.closest(".cal"); if (!b) return;
+    const e = W.events[+b.dataset.ev];
+    const v = W.venues.find((x) => x.name === e.place) || {};
+    downloadIcs([{ event: e.name, start: e.start, end: e.end, name: e.place, address: v.address || "Balurghat", time: e.time || TBA, mapUrl: v.mapUrl || "" }], `samay-${e.id}.ics`);
+  });
 
   /* ---------- Travel ---------- */
   const card = (i) => {

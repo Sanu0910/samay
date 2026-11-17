@@ -57,8 +57,13 @@ window.WEDDING = {
   // Timeline: edit, add or remove events freely (e.g. Aashirbad, Gaye Holud).
   // time "" shows "Time to be announced".
   events: [
-    { id: "biye",      name: "Wedding (Biye)",       date: "Thu, 11 Feb 2027", time: "", place: "Asha Banquet & Hotels", note: "Shubho Drishti, Saat Paak, Mala Badal, Sindoor Daan — followed by dinner" },
-    { id: "bou_bhaat", name: "Reception (Bou-bhat)", date: "Sun, 14 Feb 2027", time: "7:30 PM – 10:30 PM", place: "Siddhivinayak Bhaban Ceremonial Hall", note: "Reception dinner hosted by the groom's family" },
+    // art: "mandap" | "thali" | "holud" (illustration shown beside the event)
+    { id: "biye", name: "Biye", bn: "বিয়ে", date: "Thu, 11 Feb", time: "", art: "mandap",
+      start: "2027-02-11T19:00:00+05:30", end: "2027-02-12T01:00:00+05:30",
+      place: "Asha Banquet & Hotels", note: "Shubho Drishti, Saat Paak, Mala Badal, Sindoor Daan, followed by dinner" },
+    { id: "bou_bhaat", name: "Bou Bhaat", bn: "বৌভাত", date: "Sun, 14 Feb", time: "7:30 PM", art: "thali",
+      start: "2027-02-14T19:30:00+05:30", end: "2027-02-14T22:30:00+05:30",
+      place: "Siddhivinayak Bhaban Ceremonial Hall", note: "Reception dinner, 7:30 – 10:30 PM, hosted by the Roy family" },
   ],
 
   // Travel guide. Distances and times are approximate; check train times before booking.
