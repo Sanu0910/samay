@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>SaMay Admin</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    body { background: #f6efe3; }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 24px 16px 60px; }
+    .top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
+    .top h1 { color: var(--maroon); margin: 0; font-size: 2rem; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .actions .btn { padding: 9px 16px; font-size: .9rem; background: var(--maroon); color: #fff; }
+    .actions .btn.light { background: #fff; color: var(--maroon); border-color: var(--line); }
+    .stats { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 18px; }
+    .stat { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+    .stat b { display: block; font-size: 1.8rem; color: var(--maroon); font-family: "Cormorant Garamond", serif; }
+    .stat span { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+    .panels { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 18px; }
+    .panel { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+    .panel h3 { margin: 0 0 10px; color: var(--maroon); font-size: 1.2rem; }
+    .bar { display: flex; align-items: center; gap: 8px; font-size: .85rem; margin: 6px 0; }
+    .bar label { width: 130px; flex: none; flex-direction: row; font-weight: 400; }
+    .bar i { height: 10px; background: var(--gold); border-radius: 6px; display: block; }
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+    .filters input, .filters select { width: auto; flex: 1; min-width: 150px; background: #fff; }
+    .table-wrap { overflow: auto; background: #fff; border: 1px solid var(--line); border-radius: 12px; max-height: 70vh; }
+    table { border-collapse: collapse; width: 100%; font-size: .85rem; }
+    th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+    th { position: sticky; top: 0; background: var(--maroon); color: #fff; cursor: pointer; user-select: none; }
+    tr.local td { background: #fff7e0; }
+    .pill { padding: 2px 8px; border-radius: 999px; font-size: .75rem; font-weight: 600; }
+    .Yes { background: #dff3e6; color: #1f6b3d; } .No { background: #fbe3e1; color: #9b231b; } .Maybe { background: #fdf0cf; color: #8a5a00; }
+    .login { max-width: 420px; margin: 12vh auto; }
+    .note { font-size: .85rem; color: var(--muted); }
+    .banner { padding: 10px 14px; border-radius: 10px; margin-bottom: 14px; font-size: .9rem; }
+    .banner.warn { background: #fdf0cf; color: #6b4a00; }
+    .banner.err { background: #fbe3e1; color: #9b231b; }
+    dialog { border: 0; border-radius: 14px; padding: 24px; max-width: 640px; width: 95%; }
+    dialog::backdrop { background: rgba(0,0,0,.4); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div id="loginView" class="login card">
+      <h1 style="color:var(--maroon)">SaMay Admin</h1>
+      <p class="note">Enter the admin key set in <code>apps-script/Code.gs</code>.</p>
+      <form id="loginForm">
+        <label>Admin key<input id="keyInput" type="password" required autocomplete="current-password"></label>
+        <button class="btn btn-primary btn-block" style="margin-top:12px;background:var(--maroon);color:#fff">Open dashboard</button>
+      </form>
+      <p class="note" style="margin-top:14px">Offline? You can still open the dashboard. It shows the last downloaded data.</p>
+    </div>
+
+    <div id="dashView" hidden>
+      <div class="top">
+        <h1>Guest Management</h1>
+        <div class="actions">
+          <button class="btn" id="refreshBtn">↻ Refresh</button>
+          <button class="btn" id="exportBtn">⬇ Excel plan (.xlsx)</button>
+          <button class="btn light" id="addBtn">+ Add guest (offline)</button>
+          <label class="btn light" style="flex-direction:row">⬆ Import Excel<input type="file" id="importInput" accept=".xlsx,.xls,.csv" hidden></label>
+          <button class="btn light" id="logoutBtn">Log out</button>
+        </div>
+      </div>
+      <div id="banner"></div>
+      <div class="stats" id="stats"></div>
+      <div class="panels">
+        <div class="panel"><h3>Travel mode</h3><div id="byMode"></div></div>
+        <div class="panel"><h3>Arrivals by date</h3><div id="byDate"></div></div>
+        <div class="panel"><h3>Arriving at</h3><div id="byPoint"></div></div>
+      </div>
+      <div class="filters">
+        <input id="search" placeholder="Search name, email, phone, train…">
+        <select id="fAttending"><option value="">All responses</option><option>Yes</option><option>Maybe</option><option>No</option></select>
+        <select id="fSide"><option value="">Both sides</option><option>Bride</option><option>Groom</option><option>Both</option></select>
+        <select id="fNeed"><option value="">All needs</option><option value="pickup">Needs pickup</option><option value="stay">Needs stay</option></select>
+      </div>
+      <div class="table-wrap"><table id="table"></table></div>
+      <p class="note" id="footNote"></p>
+    </div>
+  </div>
+
+  <dialog id="addDialog">
+    <h2 style="color:var(--maroon)">Add guest (phone / in-person reply)</h2>
+    <p class="note">Saved on this device and included in the Excel export. Use this for replies that come by phone or WhatsApp.</p>
+    <form id="addForm" method="dialog" class="grid-2">
+      <label>Name *<input name="Name" required></label>
+      <label>Phone<input name="Phone"></label>
+      <label>Email<input name="Email" type="email"></label>
+      <label>Side<select name="Side"><option>Bride</option><option>Groom</option><option>Both</option></select></label>
+      <label>Attending<select name="Attending"><option>Yes</option><option>Maybe</option><option>No</option></select></label>
+      <label>Adults<input name="Adults" type="number" min="0" value="1"></label>
+      <label>Children<input name="Children" type="number" min="0" value="0"></label>
+      <label>Travel Mode<select name="Travel Mode"><option>Train</option><option>Flight + Road</option><option>Flight + Train</option><option>Bus</option><option>Own car / Taxi</option><option>Already in Balurghat</option></select></label>
+      <label>Arriving At<input name="Arriving At" value="Balurghat Railway Station"></label>
+      <label>Arrival Date<input name="Arrival Date" type="date"></label>
+      <label>Arrival Time<input name="Arrival Time" type="time"></label>
+      <label>Transport No<input name="Transport No"></label>
+      <label>Need Pickup<select name="Need Pickup"><option>No</option><option>Yes</option></select></label>
+      <label>Need Stay<select name="Need Stay"><option>No</option><option>Yes</option></select></label>
+      <label style="grid-column:1/-1">Notes<input name="Notes"></label>
+      <div class="actions" style="grid-column:1/-1;justify-content:flex-end">
+        <button class="btn light" value="cancel" formnovalidate>Cancel</button>
+        <button class="btn" value="save">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="config.js"></script>
+  <script src="assets/admin.js"></script>
+</body>
+</html>

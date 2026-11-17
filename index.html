@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SaMay · Sanu &amp; Mayuri's Wedding</title>
+  <meta name="description" content="SaMay: Sanu &amp; Mayuri's wedding, 11 February 2027, Balurghat. Venue, timeline, travel and RSVP.">
+  <meta property="og:site_name" content="SaMay">
+  <meta property="og:title" content="SaMay · Sanu &amp; Mayuri's Wedding">
+  <meta property="og:description" content="You're invited! Thursday, 11 February 2027 · Balurghat. Venue, travel and RSVP.">
+  <meta name="theme-color" content="#7a1222">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="nav-brand" href="#home" data-bind="initials"></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="#details">Details</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#travel">Travel</a>
+      <a href="#stay">Stay</a>
+      <a href="#faq">FAQ</a>
+      <a href="#rsvp" class="nav-cta">RSVP</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <p class="eyebrow">শুভ বিবাহ · Shubho Bibaho</p>
+      <h1 class="names"><span data-bind="groom"></span><span class="amp">&amp;</span><span data-bind="bride"></span></h1>
+      <p class="tagline" data-bind="tagline"></p>
+      <p class="hero-date" data-bind="dateLabel"></p>
+      <p class="hero-place">Balurghat, West Bengal</p>
+      <div class="countdown" id="countdown" aria-live="polite"></div>
+      <div class="hero-actions">
+        <a href="#rsvp" class="btn btn-primary">RSVP now</a>
+        <button class="btn btn-ghost" id="addToCal">Add to calendar</button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="details" class="section">
+      <h2 class="section-title">The Wedding</h2>
+      <div class="couple">
+        <div class="person">
+          <p class="script-name" data-bind="groomFull"></p>
+          <p data-bind="groomFamily"></p>
+          <p class="muted" data-bind="groomAddress"></p>
+        </div>
+        <div class="weds">weds</div>
+        <div class="person">
+          <p class="script-name" data-bind="brideFull"></p>
+          <p data-bind="brideFamily"></p>
+          <p class="muted" data-bind="brideAddress"></p>
+        </div>
+      </div>
+      <div class="cards-2" id="venueList"></div>
+      <p class="hosted">Hosted by <b data-bind="hostedBy"></b></p>
+    </section>
+
+    <section id="timeline" class="section alt">
+      <h2 class="section-title">Wedding Timeline</h2>
+      <ol class="timeline" id="timelineList"></ol>
+    </section>
+
+    <section id="travel" class="section">
+      <h2 class="section-title">How to Reach Balurghat</h2>
+      <p class="lead" data-bind="travel.intro"></p>
+      <div class="tabs" role="tablist">
+        <button role="tab" class="tab active" data-tab="train" aria-selected="true">🚆 By Train</button>
+        <button role="tab" class="tab" data-tab="air" aria-selected="false">✈️ By Air</button>
+        <button role="tab" class="tab" data-tab="road" aria-selected="false">🚌 By Road</button>
+      </div>
+      <div class="tab-panel" id="panel-train"></div>
+      <div class="tab-panel" id="panel-air" hidden></div>
+      <div class="tab-panel" id="panel-road" hidden></div>
+
+      <h3 class="sub-title">Nearby connecting cities</h3>
+      <div class="city-grid" id="cityGrid"></div>
+      <div class="route-strip">
+        <span>Kolkata</span><i></i><span>Malda</span><i></i><span class="here">Balurghat</span><i></i><span>Siliguri / Bagdogra</span>
+      </div>
+      <p class="links" id="usefulLinks"></p>
+    </section>
+
+    <section id="stay" class="section alt">
+      <h2 class="section-title">Stay &amp; Contacts</h2>
+      <p class="lead" data-bind="stay.text"></p>
+      <div class="cards-2" id="hotelList"></div>
+      <h3 class="sub-title">Need help? Call us</h3>
+      <div class="contact-grid" id="contactList"></div>
+    </section>
+
+    <section id="faq" class="section">
+      <h2 class="section-title">FAQ</h2>
+      <div class="faq" id="faqList"></div>
+    </section>
+
+    <section id="rsvp" class="section alt">
+      <h2 class="section-title">RSVP</h2>
+      <p class="lead center">Please let us know <span data-bind="rsvpDeadline"></span>, so we can plan your travel, pickup and stay.</p>
+
+      <form id="rsvpForm" class="rsvp" novalidate>
+        <fieldset>
+          <legend>Your details</legend>
+          <div class="grid-2">
+            <label>Full name *<input name="name" required autocomplete="name"></label>
+            <label>Email *<input name="email" type="email" required autocomplete="email"></label>
+            <label>Phone / WhatsApp *<input name="phone" type="tel" required autocomplete="tel" pattern="[0-9+\s-]{10,15}"></label>
+            <label>You are a guest of
+              <select name="side">
+                <option value="Bride">Bride's family</option>
+                <option value="Groom">Groom's family</option>
+                <option value="Both">Both</option>
+              </select>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Will you attend? *</legend>
+          <div class="choice-row">
+            <label class="choice"><input type="radio" name="attending" value="Yes" required><span>Yes, I'll be there 🎉</span></label>
+            <label class="choice"><input type="radio" name="attending" value="Maybe"><span>Not sure yet</span></label>
+            <label class="choice"><input type="radio" name="attending" value="No"><span>Sorry, can't make it</span></label>
+          </div>
+        </fieldset>
+
+        <div id="attendingFields" hidden>
+          <fieldset>
+            <legend>Guests</legend>
+            <div class="grid-3">
+              <label>Adults (incl. you)<input name="adults" type="number" min="1" max="20" value="1"></label>
+              <label>Children<input name="children" type="number" min="0" max="20" value="0"></label>
+              <label>Food preference
+                <select name="food"><option>Non-veg</option><option>Veg</option><option>Jain / special</option></select>
+              </label>
+            </div>
+            <p class="field-label">Events you'll attend</p>
+            <div class="check-grid" id="eventChecks"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Travel to Balurghat</legend>
+            <div class="grid-2">
+              <label>Mode of travel
+                <select name="travelMode">
+                  <option>Train</option>
+                  <option>Flight + Road</option>
+                  <option>Flight + Train</option>
+                  <option>Bus</option>
+                  <option>Own car / Taxi</option>
+                  <option>Already in Balurghat</option>
+                </select>
+              </label>
+              <label>Arriving at
+                <select name="arrivalPoint">
+                  <option>Balurghat Railway Station</option>
+                  <option>Balurghat Bus Stand</option>
+                  <option>Malda Town Station</option>
+                  <option>Bagdogra Airport</option>
+                  <option>NJP Station</option>
+                  <option>Directly at venue</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label>Arrival date<input name="arrivalDate" type="date"></label>
+              <label>Arrival time (approx.)<input name="arrivalTime" type="time"></label>
+              <label>Train / Flight / Bus no.<input name="transportNo" list="trainList" placeholder="e.g. 13161 or 6E-1234"></label>
+              <datalist id="trainList"></datalist>
+              <label>Departure date<input name="departureDate" type="date"></label>
+            </div>
+            <div class="choice-row">
+              <label class="toggle"><input type="checkbox" name="needPickup" value="Yes"><span>I need pickup</span></label>
+              <label class="toggle"><input type="checkbox" name="needStay" value="Yes"><span>I need accommodation</span></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <fieldset>
+          <legend>Message for the couple</legend>
+          <label><textarea name="message" rows="3" placeholder="Your wishes, special needs, anything we should know…"></textarea></label>
+        </fieldset>
+
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-primary btn-block" type="submit" id="rsvpSubmit">Send RSVP</button>
+        <p class="form-status" id="formStatus" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="script" data-bind="hashtag"></p>
+    <p>With love, <span data-bind="hostedBy"></span> and family</p>
+  </footer>
+
+  <button class="music-btn" id="musicBtn" hidden aria-label="Play music" aria-pressed="false">♫</button>
+
+  <script src="config.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
