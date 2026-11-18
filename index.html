@@ -2,344 +2,367 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>SaMay · Sanu &amp; Mayuri's Wedding</title>
-  <meta name="description" content="SaMay: Sanu &amp; Mayuri's wedding, 11 February 2027, Balurghat. Venue, timeline, travel and RSVP.">
+  <meta name="description" content="Sanu &amp; Mayuri's wedding, 11 February 2027, Balurghat. Venue, timeline, travel and RSVP.">
   <meta property="og:site_name" content="SaMay">
-  <meta property="og:title" content="SaMay · Sanu &amp; Mayuri's Wedding">
-  <meta property="og:description" content="You're invited! Thursday, 11 February 2027 · Balurghat. Venue, travel and RSVP.">
-  <meta name="theme-color" content="#7a1222">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+  <meta property="og:title" content="You're invited: Sanu &amp; Mayuri's wedding">
+  <meta property="og:description" content="Thursday, 11 February 2027 in Balurghat. Venue, travel and RSVP.">
+  <meta name="theme-color" content="#5c0a12">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 110'><path d='M58 44C46 14 14 6 8 22 2 38 22 52 56 50Z M62 44C74 14 106 6 112 22 118 38 98 52 64 50Z M57 52C36 52 20 66 26 80 32 92 50 80 58 58Z M63 52C84 52 100 66 94 80 88 92 70 80 62 58Z' fill='%23b3121f'/><ellipse cx='60' cy='52' rx='4' ry='17' fill='%235a1a12'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Pinyon+Script&family=Tiro+Bangla&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Tiro+Bangla&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body class="gated">
-  <!-- Illustration sprite (original artwork) -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- ===================== Vector artwork (original, hand-drawn SVG) ===================== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
-      <linearGradient id="gLeaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6fae4f"/><stop offset=".55" stop-color="#3f8a3a"/><stop offset="1" stop-color="#25602b"/></linearGradient>
-      <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1d58a"/><stop offset=".5" stop-color="#c9973e"/><stop offset="1" stop-color="#8f6420"/></linearGradient>
-      <linearGradient id="gShankha" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf7"/><stop offset="1" stop-color="#e6dccb"/></linearGradient>
-      <linearGradient id="gPola" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d42a2a"/><stop offset="1" stop-color="#8d0f17"/></linearGradient>
+      <linearGradient id="gLeaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7cb85a"/><stop offset=".5" stop-color="#418c39"/><stop offset="1" stop-color="#1f5524"/></linearGradient>
+      <radialGradient id="gLeafHi" cx=".35" cy=".3" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+      <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5df9f"/><stop offset=".5" stop-color="#c99a42"/><stop offset="1" stop-color="#8e6522"/></linearGradient>
+
+      <path id="paanP" d="M100 6C128 46 194 86 194 156C194 214 152 248 112 240C106 239 102 236 100 230C98 236 94 239 88 240C48 248 6 214 6 156C6 86 72 46 100 6Z"/>
+      <linearGradient id="gSheen" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".35" stop-color="#fff" stop-opacity=".07"/>
+        <stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".7" stop-color="#fff" stop-opacity=".05"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+      </linearGradient>
+      <radialGradient id="gVignette" cx=".5" cy=".45" r=".75"><stop offset=".55" stop-color="#3a0309" stop-opacity="0"/><stop offset="1" stop-color="#3a0309" stop-opacity=".65"/></radialGradient>
     </defs>
-    <symbol id="i-leaf" viewBox="0 0 100 150">
-      <path d="M50 8 C70 30 98 52 96 84 C94 116 70 136 50 146 C30 136 6 116 4 84 C2 52 30 30 50 8Z" fill="url(#gLeaf)" stroke="#1f5124" stroke-width="1.5"/>
-      <path d="M50 14 L50 140" stroke="#cfe6a8" stroke-width="2" fill="none" opacity=".8"/>
-      <g stroke="#cfe6a8" stroke-width="1.2" fill="none" opacity=".6">
-        <path d="M50 45 C40 50 26 56 16 70"/><path d="M50 45 C60 50 74 56 84 70"/>
-        <path d="M50 72 C38 78 24 88 14 104"/><path d="M50 72 C62 78 76 88 86 104"/>
-        <path d="M50 100 C42 108 32 116 24 126"/><path d="M50 100 C58 108 68 116 76 126"/>
+
+    <!-- Paan (betel) leaf, tip up -->
+    <symbol id="i-paan" viewBox="0 0 200 262">
+      <use href="#paanP" fill="url(#gLeaf)" stroke="#1b4a20" stroke-width="2"/>
+      <use href="#paanP" fill="url(#gLeafHi)"/>
+      <g fill="none" stroke="#c6e6a0" stroke-linecap="round" opacity=".75">
+        <path d="M100 20C101 90 101 170 100 230" stroke-width="2.4"/>
+        <path d="M100 224C70 204 54 150 74 78M100 224C130 204 146 150 126 78" stroke-width="1.6"/>
+        <path d="M100 228C52 222 26 180 34 118M100 228C148 222 174 180 166 118" stroke-width="1.4"/>
+        <path d="M86 128C78 124 66 128 56 140M114 128C122 124 134 128 144 140M88 176C76 174 62 180 50 194M112 176C124 174 138 180 150 194" stroke-width="1" opacity=".7"/>
       </g>
-      <path d="M50 146 L50 150" stroke="#1f5124" stroke-width="3"/>
+      <use href="#paanP" transform="translate(100 140) scale(.9) translate(-100 -140)" fill="none" stroke="#fff6dc" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="0 10"/>
+      <path d="M100 230C100 241 98 250 93 260" stroke="#2c5f2a" stroke-width="4.5" stroke-linecap="round" fill="none"/>
     </symbol>
-    <symbol id="i-butterfly" viewBox="0 0 100 80">
-      <path d="M48 38 C36 8 6 4 8 22 C10 36 28 40 48 40Z" fill="#c62f34"/>
-      <path d="M52 38 C64 8 94 4 92 22 C90 36 72 40 52 40Z" fill="#c62f34"/>
-      <path d="M48 42 C30 44 16 58 24 70 C32 78 44 62 48 44Z" fill="#e86a6f"/>
-      <path d="M52 42 C70 44 84 58 76 70 C68 78 56 62 52 44Z" fill="#e86a6f"/>
-      <g fill="#f6d27a"><circle cx="26" cy="20" r="3"/><circle cx="74" cy="20" r="3"/><circle cx="34" cy="60" r="2.2"/><circle cx="66" cy="60" r="2.2"/></g>
-      <ellipse cx="50" cy="42" rx="3" ry="16" fill="#3e7d3a"/>
-      <path d="M49 27 C46 18 42 14 38 12 M51 27 C54 18 58 14 62 12" stroke="#3e7d3a" stroke-width="1.5" fill="none"/>
-    </symbol>
-    <symbol id="i-bangles" viewBox="0 0 200 112">
-      <circle cx="70" cy="56" r="44" fill="none" stroke="url(#gShankha)" stroke-width="15"/>
-      <circle cx="70" cy="56" r="44" fill="none" stroke="#b9ab94" stroke-width="15" stroke-dasharray="1.2 6" opacity=".55"/>
-      <circle cx="70" cy="56" r="51.5" fill="none" stroke="#d9b45e" stroke-width="1.2"/>
-      <circle cx="70" cy="56" r="36.5" fill="none" stroke="#d9b45e" stroke-width="1.2"/>
-      <circle cx="130" cy="56" r="44" fill="none" stroke="url(#gPola)" stroke-width="15"/>
-      <circle cx="130" cy="56" r="51.5" fill="none" stroke="#e8c35f" stroke-width="1.6"/>
-      <circle cx="130" cy="56" r="36.5" fill="none" stroke="#e8c35f" stroke-width="1.6"/>
-      <path d="M91.1 16.3 A44 44 0 0 1 107.3 30.8" fill="none" stroke="url(#gShankha)" stroke-width="15"/>
-      <path d="M91.1 16.3 A44 44 0 0 1 107.3 30.8" fill="none" stroke="#b9ab94" stroke-width="15" stroke-dasharray="1.2 6" opacity=".55"/>
-    </symbol>
-    <symbol id="i-tuberose" viewBox="0 0 60 130">
-      <path d="M30 128 C30 90 31 50 30 10" stroke="#6c8f45" stroke-width="2" fill="none"/>
-      <g fill="#fffaf0" stroke="#e3d7bf" stroke-width=".8">
-        <ellipse cx="30" cy="10" rx="4" ry="9"/>
-        <ellipse cx="22" cy="28" rx="3.5" ry="10" transform="rotate(-30 22 28)"/><ellipse cx="38" cy="28" rx="3.5" ry="10" transform="rotate(30 38 28)"/>
-        <ellipse cx="20" cy="50" rx="3.5" ry="11" transform="rotate(-40 20 50)"/><ellipse cx="40" cy="50" rx="3.5" ry="11" transform="rotate(40 40 50)"/>
-        <ellipse cx="19" cy="74" rx="3.5" ry="11" transform="rotate(-45 19 74)"/><ellipse cx="41" cy="74" rx="3.5" ry="11" transform="rotate(45 41 74)"/>
+
+    <!-- Prajapati: the Bengali wedding butterfly, resting on two leaves -->
+    <symbol id="i-prajapati" viewBox="0 0 120 110">
+      <g stroke="#c9973e" stroke-width="1.2" stroke-linejoin="round">
+        <path d="M58 44C46 14 14 6 8 22C2 38 22 52 56 50Z" fill="#b3121f"/>
+        <path d="M62 44C74 14 106 6 112 22C118 38 98 52 64 50Z" fill="#b3121f"/>
+        <path d="M57 52C36 52 20 66 26 80C32 92 50 80 58 58Z" fill="#c4161c"/>
+        <path d="M63 52C84 52 100 66 94 80C88 92 70 80 62 58Z" fill="#c4161c"/>
       </g>
-    </symbol>
-    <symbol id="i-divider" viewBox="0 0 220 34">
-      <path d="M8 17 C30 6 52 28 76 17 M212 17 C190 6 168 28 144 17" stroke="#b8893b" stroke-width="1.4" fill="none"/>
-      <circle cx="8" cy="17" r="2" fill="#b8893b"/><circle cx="212" cy="17" r="2" fill="#b8893b"/>
-      <use href="#i-leaf" x="78" y="5" width="22" height="26" transform="rotate(-90 89 18)"/>
-      <use href="#i-leaf" x="120" y="5" width="22" height="26" transform="rotate(90 131 18)"/>
-      <path d="M110 4 C116 12 116 22 110 30 C104 22 104 12 110 4Z" fill="#d2452f"/>
-      <path d="M110 30 C100 28 94 20 96 12 C104 14 108 22 110 30Z M110 30 C120 28 126 20 124 12 C116 14 112 22 110 30Z" fill="#e8823a"/>
-    </symbol>
-    <symbol id="i-mat" viewBox="0 0 160 70">
-      <path d="M14 18 L146 18 L156 60 L4 60Z" fill="#c9442f"/>
-      <path d="M20 23 L140 23 L148 55 L12 55Z" fill="none" stroke="#f7e7c9" stroke-width="1.6" stroke-dasharray="4 3"/>
-      <path d="M30 30 L130 30 L135 48 L25 48Z" fill="none" stroke="#f2c867" stroke-width="1.2"/>
-    </symbol>
-    <symbol id="i-mandap" viewBox="0 0 160 130">
-      <use href="#i-mat" x="0" y="62" width="160" height="70"/>
-      <g stroke="#3f7a35" stroke-width="2.4" fill="none"><path d="M26 112 L26 30"/><path d="M134 112 L134 30"/></g>
-      <g fill="url(#gLeaf)">
-        <path d="M26 34 C8 24 2 14 4 6 C14 12 22 22 26 34Z"/><path d="M26 34 C44 24 50 14 48 6 C38 12 30 22 26 34Z"/>
-        <path d="M26 52 C10 46 4 38 6 30 C16 34 22 42 26 52Z"/><path d="M26 52 C42 46 48 38 46 30 C36 34 30 42 26 52Z"/>
-        <path d="M134 34 C116 24 110 14 112 6 C122 12 130 22 134 34Z"/><path d="M134 34 C152 24 158 14 156 6 C146 12 138 22 134 34Z"/>
-        <path d="M134 52 C118 46 112 38 114 30 C124 34 130 42 134 52Z"/><path d="M134 52 C150 46 156 38 154 30 C144 34 138 42 134 52Z"/>
+      <g fill="#e65356">
+        <path d="M54 44C44 23 23 17 17 27C13 36 26 44 52 46Z"/><path d="M66 44C76 23 97 17 103 27C107 36 94 44 68 46Z"/>
+        <path d="M55 56C41 57 31 66 34 76C39 83 50 73 56 60Z"/><path d="M65 56C79 57 89 66 86 76C81 83 70 73 64 60Z"/>
       </g>
-      <path d="M30 40 C60 22 100 22 130 40" stroke="#c9973e" stroke-width="3" fill="none"/>
-      <g fill="#f2a227"><circle cx="45" cy="34" r="3"/><circle cx="60" cy="29" r="3"/><circle cx="80" cy="27" r="3"/><circle cx="100" cy="29" r="3"/><circle cx="115" cy="34" r="3"/></g>
-      <g transform="translate(64 66)">
-        <path d="M6 44 L6 18 C6 10 18 10 18 18 L18 44Z" fill="#b3121f"/><circle cx="12" cy="8" r="6" fill="#f0c9a6"/><path d="M5 6 C8 -2 16 -2 19 6" fill="#d23b2c"/>
-        <path d="M24 44 L24 18 C24 10 36 10 36 18 L36 44Z" fill="#f6efe0" stroke="#d9c7a3"/><circle cx="30" cy="8" r="6" fill="#f0c9a6"/><path d="M24 4 L30 -6 L36 4Z" fill="#f2f2f2" stroke="#c9973e"/>
+      <g fill="#fff4d6">
+        <circle cx="20" cy="26" r="1.8"/><circle cx="27" cy="21" r="1.6"/><circle cx="35" cy="21" r="1.5"/><circle cx="42" cy="25" r="1.4"/>
+        <circle cx="100" cy="26" r="1.8"/><circle cx="93" cy="21" r="1.6"/><circle cx="85" cy="21" r="1.5"/><circle cx="78" cy="25" r="1.4"/>
+        <circle cx="34" cy="74" r="1.5"/><circle cx="40" cy="68" r="1.4"/><circle cx="86" cy="74" r="1.5"/><circle cx="80" cy="68" r="1.4"/>
       </g>
+      <g fill="#f3c654"><circle cx="30" cy="35" r="3.4"/><circle cx="90" cy="35" r="3.4"/></g>
+      <ellipse cx="60" cy="52" rx="3.4" ry="16" fill="#5a1a12"/>
+      <circle cx="60" cy="35" r="3.6" fill="#5a1a12"/>
+      <path d="M59 33C56 24 51 19 46 19M61 33C64 24 69 19 74 19" stroke="#5a1a12" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <circle cx="45.5" cy="19" r="1.8" fill="#5a1a12"/><circle cx="74.5" cy="19" r="1.8" fill="#5a1a12"/>
+      <path d="M60 70C46 70 36 82 40 98C54 96 62 86 60 70Z" fill="url(#gLeaf)"/>
+      <path d="M60 70C74 70 84 82 80 98C66 96 58 86 60 70Z" fill="url(#gLeaf)"/>
+      <path d="M59 73C53 80 47 88 42 96M61 73C67 80 73 88 78 96" stroke="#c6e6a0" stroke-width=".9" fill="none" opacity=".8"/>
     </symbol>
-    <symbol id="i-thali" viewBox="0 0 160 110">
-      <use href="#i-mat" x="0" y="40" width="160" height="70"/>
-      <ellipse cx="80" cy="76" rx="52" ry="18" fill="url(#gGold)"/>
-      <ellipse cx="80" cy="74" rx="44" ry="14" fill="#e8c56c"/>
-      <path d="M48 74 C60 58 100 58 112 74 C100 82 60 82 48 74Z" fill="#4f9a3f"/>
-      <ellipse cx="80" cy="70" rx="13" ry="8" fill="#fffaf0"/>
-      <g fill="url(#gGold)"><ellipse cx="56" cy="70" rx="8" ry="4"/><ellipse cx="104" cy="70" rx="8" ry="4"/><ellipse cx="68" cy="80" rx="7" ry="3.5"/><ellipse cx="94" cy="80" rx="7" ry="3.5"/></g>
-      <g fill="#d36a1f"><ellipse cx="56" cy="68.5" rx="5.5" ry="2.4"/><ellipse cx="104" cy="68.5" rx="5.5" ry="2.4" fill="#f2c14e"/><ellipse cx="68" cy="79" rx="4.5" ry="2" fill="#8a3d1e"/><ellipse cx="94" cy="79" rx="4.5" ry="2" fill="#f7e9d0"/></g>
-      <path d="M120 58 C130 50 140 52 146 60" stroke="#c9973e" stroke-width="3" fill="none"/>
+
+
+
+    <!-- Section divider: gold scrolls, two paan leaves and a lotus -->
+    <symbol id="i-divider" viewBox="0 0 240 40">
+      <g id="scrollL" fill="none" stroke="#b8893b" stroke-width="1.4" stroke-linecap="round">
+        <path d="M8 20C26 10 44 30 66 20C72 17 76 21 72 24C69 26 66 23 68 21"/>
+        <path d="M30 19C34 13 40 12 44 15"/>
+        <circle cx="7" cy="20" r="1.8" fill="#b8893b" stroke="none"/>
+      </g>
+      <use href="#scrollL" transform="translate(240 0) scale(-1 1)"/>
+      <use href="#i-paan" x="82" y="3" width="26" height="34" transform="rotate(-90 95 20)"/>
+      <use href="#i-paan" x="132" y="3" width="26" height="34" transform="rotate(90 145 20)"/>
+      <path d="M120 33C104 34 96 28 94 20C106 20 114 26 120 33ZM120 33C136 34 144 28 146 20C134 20 126 26 120 33Z" fill="#ef8f3a"/>
+      <path d="M120 32C108 30 102 20 104 10C113 13 118 22 120 32ZM120 32C132 30 138 20 136 10C127 13 122 22 120 32Z" fill="#df5f2c"/>
+      <path d="M120 4C126 12 126 24 120 32C114 24 114 12 120 4Z" fill="#c4161c"/>
+      <path d="M108 35Q120 39 132 35" stroke="#b8893b" stroke-width="1.2" fill="none"/>
     </symbol>
-    <symbol id="i-holud" viewBox="0 0 160 110">
-      <use href="#i-mat" x="0" y="40" width="160" height="70"/>
-      <ellipse cx="80" cy="74" rx="46" ry="15" fill="url(#gGold)"/>
-      <g fill="#f2b51d"><circle cx="64" cy="68" r="9"/><circle cx="96" cy="68" r="9"/></g>
-      <path d="M78 52 C76 40 84 34 86 46 C88 56 80 60 78 52Z" fill="#f6c343"/>
-      <g fill="#f08a24"><circle cx="50" cy="76" r="4"/><circle cx="110" cy="76" r="4"/><circle cx="80" cy="82" r="4"/></g>
-    </symbol>
+
+
+
+
+
+
+
+    <!-- Icons -->
+    <symbol id="ic-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></symbol>
+    <symbol id="ic-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path fill="currentColor" d="M9.1 7.6c-.3 0-.7.1-.9.5-.4.6-.6 1.5-.2 2.6.8 2.2 3 4.3 5.3 5 1 .3 1.9.1 2.5-.4.3-.3.4-.7.3-1l-.4-.8c-.1-.2-.4-.3-.6-.2l-1.2.5c-.2.1-.4 0-.6-.1a6 6 0 0 1-2.2-2.2c-.1-.2-.1-.4 0-.6l.5-1.1c.1-.2 0-.5-.1-.6l-.7-1.3c-.1-.2-.3-.3-.5-.3z"/></symbol>
+    <symbol id="ic-train" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10h14M9 21l1.5-4M15 21l-1.5-4"/></g><circle cx="9" cy="13.5" r="1.1" fill="currentColor"/><circle cx="15" cy="13.5" r="1.1" fill="currentColor"/></symbol>
+    <symbol id="ic-plane" viewBox="0 0 24 24"><path fill="currentColor" d="M21 15.5v-2l-8-5V4a1.5 1.5 0 0 0-3 0v4.5l-8 5v2l8-2.5V18l-2 1.5V21l3.5-1 3.5 1v-1.5L13 18v-5z"/></symbol>
+    <symbol id="ic-bus" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="15" rx="2.5"/><path d="M4 11h16M7 18v2.5M17 18v2.5M8 6.5h8"/></g><circle cx="8" cy="14.5" r="1.1" fill="currentColor"/><circle cx="16" cy="14.5" r="1.1" fill="currentColor"/></symbol>
+    <symbol id="ic-pin" viewBox="0 0 30 40"><path fill="#a3121f" d="M15 1C7.3 1 2 6.6 2 13.6 2 23.4 15 39 15 39s13-15.6 13-25.4C28 6.6 22.7 1 15 1z"/><circle cx="15" cy="13.5" r="5" fill="#f6eedc"/></symbol>
+    <symbol id="wx-sun" viewBox="0 0 48 48"><circle cx="24" cy="24" r="9" fill="#f2b51d"/><g stroke="#e9861b" stroke-width="2.6" stroke-linecap="round"><path d="M24 5v5M24 38v5M5 24h5M38 24h5M10.6 10.6l3.5 3.5M33.9 33.9l3.5 3.5M10.6 37.4l3.5-3.5M33.9 14.1l3.5-3.5"/></g></symbol>
+    <symbol id="wx-cloud" viewBox="0 0 48 48"><path d="M14 36h21a8 8 0 0 0 0-16 11 11 0 0 0-21 3 6.5 6.5 0 0 0 0 13z" fill="#fbf6ea" stroke="#a8802f" stroke-width="2"/></symbol>
+    <symbol id="wx-part" viewBox="0 0 48 48"><circle cx="17" cy="17" r="7.5" fill="#f2b51d"/><g stroke="#e9861b" stroke-width="2.2" stroke-linecap="round"><path d="M17 3v4M3 17h4M7 7l2.8 2.8M27 7l-2.8 2.8"/></g><path d="M16 40h19a7.5 7.5 0 0 0 0-15 10 10 0 0 0-19 3 6 6 0 0 0 0 12z" fill="#fbf6ea" stroke="#a8802f" stroke-width="2"/></symbol>
+    <symbol id="wx-rain" viewBox="0 0 48 48"><path d="M14 30h21a8 8 0 0 0 0-16 11 11 0 0 0-21 3 6.5 6.5 0 0 0 0 13z" fill="#fbf6ea" stroke="#a8802f" stroke-width="2"/><g stroke="#4f86b5" stroke-width="2.6" stroke-linecap="round"><path d="M17 35l-2 5M25 35l-2 5M33 35l-2 5"/></g></symbol>
+    <symbol id="wx-fog" viewBox="0 0 48 48"><path d="M14 28h21a8 8 0 0 0 0-16 11 11 0 0 0-21 3 6.5 6.5 0 0 0 0 13z" fill="#fbf6ea" stroke="#a8802f" stroke-width="2"/><g stroke="#b3a28a" stroke-width="2.6" stroke-linecap="round"><path d="M10 34h28M14 40h22"/></g></symbol>
+    <symbol id="wx-storm" viewBox="0 0 48 48"><path d="M14 30h21a8 8 0 0 0 0-16 11 11 0 0 0-21 3 6.5 6.5 0 0 0 0 13z" fill="#fbf6ea" stroke="#a8802f" stroke-width="2"/><path d="M25 31l-5 8h5l-3 7 8-10h-5l3-5z" fill="#f2b51d"/></symbol>
+    <symbol id="ic-share" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7.5 7.5L12 3l4.5 4.5M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></g></symbol>
+    <symbol id="ic-music" viewBox="0 0 24 24"><path fill="currentColor" d="M9 18.5a3 3 0 1 1-2-2.83V5.5l12-2.5v12a3 3 0 1 1-2-2.83V7.6l-8 1.7z"/></symbol>
   </svg>
 
-  <!-- Opening gate -->
-  <div class="gate" id="gate" role="dialog" aria-label="Invitation" tabindex="-1">
-    <div class="gate-stage">
-      <div class="gate-card">
-        <svg class="gate-fly"><use href="#i-butterfly"/></svg>
-        <p class="gate-bn">শুভ বিবাহ</p>
-        <p class="gate-names"><span data-bind="groom"></span> <span class="amp">&amp;</span> <span data-bind="bride"></span></p>
-        <p class="gate-date">11 · 02 · 2027</p>
-      </div>
-      <svg class="gate-leaf left"><use href="#i-leaf"/></svg>
-      <svg class="gate-leaf right"><use href="#i-leaf"/></svg>
-      <div class="gate-bottom">
-        <svg class="tuberose l"><use href="#i-tuberose"/></svg>
-        <svg class="bangles"><use href="#i-bangles"/></svg>
-        <svg class="tuberose r"><use href="#i-tuberose"/></svg>
-      </div>
-    </div>
-    <button class="gate-open" id="gateOpen">Tap to open the invitation</button>
-  </div>
-  <button class="gate-reclose" id="gateReclose" hidden>↻ Close it again</button>
+  <div class="invite" id="top">
 
-  <header class="nav" id="nav">
-    <a class="nav-brand" href="#home" data-bind="initials"></a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
-    <nav class="nav-links">
-      <a href="#details">Details</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#travel">Travel</a>
-      <a href="#stay">Stay</a>
-      <a href="#faq">FAQ</a>
-      <a href="#rsvp" class="nav-cta">RSVP</a>
-    </nav>
-  </header>
+    <!-- ===================== Opening: silk, paan leaves, the card ===================== -->
+    <section class="silk" id="gate" aria-label="Invitation cover">
+      <svg class="silk-bg" aria-hidden="true" preserveAspectRatio="none">
+        <rect width="100%" height="100%" fill="url(#gSheen)"/>
+        <rect width="100%" height="100%" fill="url(#gVignette)"/>
+      </svg>
+      <button class="reclose" id="reclose" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.6-5.9M4 4v4h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Close it again
+      </button>
 
-  <section class="hero" id="home">
-    <div class="hero-card">
-      <svg class="hero-fly"><use href="#i-butterfly"/></svg>
-      <p class="eyebrow">শুভ বিবাহ · Shubho Bibaho</p>
-      <h1 class="names"><span data-bind="groom"></span><span class="amp">&amp;</span><span data-bind="bride"></span></h1>
-      <p class="tagline" data-bind="tagline"></p>
-      <svg class="divider"><use href="#i-divider"/></svg>
-      <p class="hero-date" data-bind="dateLabel"></p>
-      <p class="hero-place">Balurghat, West Bengal</p>
-      <div class="countdown" id="countdown" aria-live="polite"></div>
-      <div class="hero-actions">
-        <a href="#rsvp" class="btn btn-primary">RSVP now</a>
-        <button class="btn btn-ghost" id="addToCal">Add to calendar</button>
-      </div>
-    </div>
-    <div class="hero-bottom" aria-hidden="true">
-      <svg class="tuberose l"><use href="#i-tuberose"/></svg>
-      <svg class="bangles"><use href="#i-bangles"/></svg>
-      <svg class="tuberose r"><use href="#i-tuberose"/></svg>
-    </div>
-    <a class="scroll-cue" href="#date">Scroll down<span>⌄</span></a>
-  </section>
+      <div class="stage">
+        <div class="card">
+          <p class="card-invited">You're invited</p>
+          <p class="card-to">to a wedding in <span data-bind="city"></span></p>
+          <svg class="card-fly" aria-hidden="true"><use href="#i-prajapati"/></svg>
+          <p class="card-bn" lang="bn">শুভ বিবাহ</p>
+          <p class="card-names"><span data-bind="groom"></span> <span class="amp">&amp;</span> <span data-bind="bride"></span></p>
+          <p class="card-date" data-bind="dateLabel"></p>
+        </div>
 
-  <main>
-    <section id="date" class="section">
-      <h2 class="section-title">The Date</h2>
-      <p class="scratch-hint">✦ Scratch to reveal the date ✦</p>
-      <div class="scratch-row" id="scratchRow">
-        <div class="scratch"><span class="scratch-val">11</span><canvas></canvas><small>Day</small></div>
-        <div class="scratch"><span class="scratch-val">February</span><canvas></canvas><small>Month</small></div>
-        <div class="scratch"><span class="scratch-val">2027</span><canvas></canvas><small>Year</small></div>
+        <button class="paan paan-l" id="paanL" aria-label="Open the invitation"><img src="assets/img/paan.webp" alt="" width="600" height="796"></button>
+        <button class="paan paan-r" id="paanR" tabindex="-1" aria-hidden="true"><img src="assets/img/paan.webp" alt="" width="600" height="796"></button>
+
+        <div class="still-life" aria-hidden="true">
+          <img class="tuberose t1" src="assets/img/tuberose.webp" alt="" width="500" height="750">
+          <img class="bangles" src="assets/img/bangles.webp" alt="" width="800" height="533">
+          <img class="tuberose t4" src="assets/img/tuberose.webp" alt="" width="500" height="750">
+        </div>
       </div>
-      <button class="link-btn" id="revealAll">Can't scratch? Tap to reveal</button>
-      <div class="date-detail" id="dateDetail">
-        <p class="date-when">Thursday · <span id="dateMuhurta"></span></p>
-        <p class="date-where">Asha Banquet &amp; Hotels, Dipali Nagar, Khadimpur, Balurghat</p>
-        <button class="link-btn gold" id="addToCal2">Add to calendar</button>
-      </div>
+      <p class="tap-hint" id="tapHint">Tap the paan leaves</p>
     </section>
-    <section id="details" class="section">
-      <h2 class="section-title">The Wedding</h2>
-      <div class="couple">
-        <div class="person">
+
+    <div class="paper">
+      <a class="scroll-cue" href="#date">Scroll down
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </a>
+
+      <!-- ===================== The date ===================== -->
+      <section class="sec" id="date">
+        <h2 class="title">The Date</h2>
+        <svg class="divider" aria-hidden="true"><use href="#i-divider"/></svg>
+        <p class="hint">✦ Scratch to reveal the date ✦</p>
+        <div class="scratch-row" id="scratchRow">
+          <div class="scratch"><div class="tile"><span class="val">11</span><canvas aria-hidden="true"></canvas></div><small>Day</small></div>
+          <div class="scratch"><div class="tile"><span class="val">February</span><canvas aria-hidden="true"></canvas></div><small>Month</small></div>
+          <div class="scratch"><div class="tile"><span class="val">2027</span><canvas aria-hidden="true"></canvas></div><small>Year</small></div>
+        </div>
+        <button class="text-btn" id="revealAll">Can't scratch? Show the date</button>
+        <div class="date-detail" id="dateDetail">
+          <p class="date-when" id="dateWhen"></p>
+          <p class="date-where" id="dateWhere"></p>
+          <button class="text-btn gold" data-cal="0">Add to calendar</button>
+        </div>
+      </section>
+
+      <!-- ===================== The invitation (temple arch) ===================== -->
+      <section class="sec arch-sec" id="invitation">
+        <svg class="arch-top" viewBox="0 0 400 230" aria-hidden="true">
+          <path d="M10 232V170C10 148 26 138 44 138C44 120 62 112 80 116C88 90 118 82 136 86C150 60 178 50 192 38C196 34 198 28 200 22C202 28 204 34 208 38C222 50 250 60 264 86C282 82 312 90 320 116C338 112 356 120 356 138C374 138 390 148 390 170V232" fill="#fbf6ea" stroke="#fffaf0" stroke-width="14" stroke-linejoin="round"/>
+          <path d="M10 232V170C10 148 26 138 44 138C44 120 62 112 80 116C88 90 118 82 136 86C150 60 178 50 192 38C196 34 198 28 200 22C202 28 204 34 208 38C222 50 250 60 264 86C282 82 312 90 320 116C338 112 356 120 356 138C374 138 390 148 390 170V232" fill="none" stroke="#b8893b" stroke-width="1.6"/>
+          <path d="M200 2C205 8 205 14 200 18C195 14 195 8 200 2Z" fill="none" stroke="#b8893b" stroke-width="1.4"/>
+          <g id="archMono"></g>
+        </svg>
+        <div class="arch-body">
+          <p class="mantra" lang="bn">শ্রী শ্রী প্রজাপতয়ে নমঃ</p>
+          <svg class="divider sm" aria-hidden="true"><use href="#i-divider"/></svg>
+          <p class="lead-in" data-bind="tagline"></p>
           <p class="script-name" data-bind="groomFull"></p>
-          <p data-bind="groomFamily"></p>
-          <p class="muted" data-bind="groomAddress"></p>
-        </div>
-        <div class="weds">weds</div>
-        <div class="person">
+          <p class="parent" data-bind="groomFamily"></p>
+          <p class="with">with</p>
           <p class="script-name" data-bind="brideFull"></p>
-          <p data-bind="brideFamily"></p>
-          <p class="muted" data-bind="brideAddress"></p>
+          <p class="parent" data-bind="brideFamily"></p>
+          <p class="arch-date" data-bind="dateLabel"></p>
+          <p class="arch-venue" id="archVenue"></p>
         </div>
-      </div>
-      <div class="cards-2" id="venueList"></div>
-      <p class="hosted">Hosted by <b data-bind="hostedBy"></b></p>
-    </section>
+      </section>
 
-    <section id="timeline" class="section alt">
-      <h2 class="section-title">The Celebrations</h2>
-      <ol class="tl" id="timelineList"></ol>
-    </section>
+      <!-- ===================== The celebrations ===================== -->
+      <section class="sec" id="timeline">
+        <h2 class="title">The celebrations</h2>
+        <svg class="divider" aria-hidden="true"><use href="#i-divider"/></svg>
+        <ol class="tl" id="timelineList"></ol>
+      </section>
 
-    <section id="travel" class="section">
-      <h2 class="section-title">How to Reach Balurghat</h2>
-      <p class="lead" data-bind="travel.intro"></p>
-      <div class="tabs" role="tablist">
-        <button role="tab" class="tab active" data-tab="train" aria-selected="true">🚆 By Train</button>
-        <button role="tab" class="tab" data-tab="air" aria-selected="false">✈️ By Air</button>
-        <button role="tab" class="tab" data-tab="road" aria-selected="false">🚌 By Road</button>
-      </div>
-      <div class="tab-panel" id="panel-train"></div>
-      <div class="tab-panel" id="panel-air" hidden></div>
-      <div class="tab-panel" id="panel-road" hidden></div>
+      <!-- ===================== Countdown ===================== -->
+      <section class="sec" id="countdownSec">
+        <h2 class="title">The celebration begins</h2>
+        <svg class="divider" aria-hidden="true"><use href="#i-divider"/></svg>
+        <div class="countdown" id="countdown" aria-live="off"></div>
+        <p class="hint soft" id="countdownNote"></p>
+      </section>
 
-      <h3 class="sub-title">Nearby connecting cities</h3>
-      <div class="city-grid" id="cityGrid"></div>
-      <div class="route-strip">
-        <span>Kolkata</span><i></i><span>Malda</span><i></i><span class="here">Balurghat</span><i></i><span>Siliguri / Bagdogra</span>
-      </div>
-      <p class="links" id="usefulLinks"></p>
-    </section>
+      <!-- ===================== Location ===================== -->
+      <section class="sec" id="location">
+        <h2 class="title">Location</h2>
+        <svg class="divider" aria-hidden="true"><use href="#i-divider"/></svg>
+        <div class="seg" role="tablist" id="venueTabs"></div>
+        <div id="venuePanel"></div>
+      </section>
 
-    <section id="stay" class="section alt">
-      <h2 class="section-title">Stay &amp; Contacts</h2>
-      <p class="lead" data-bind="stay.text"></p>
-      <div class="cards-2" id="hotelList"></div>
-      <h3 class="sub-title">Need help? Call us</h3>
-      <div class="contact-grid" id="contactList"></div>
-    </section>
+      <!-- ===================== Getting to Balurghat ===================== -->
+      <section class="sec" id="travel">
+        <h2 class="title">Getting here</h2>
+        <svg class="divider" aria-hidden="true"><use href="#i-divider"/></svg>
+        <p class="body-copy" data-bind="travel.intro"></p>
+        <ol class="route" id="route" aria-label="Nearby cities and road distance to Balurghat"></ol>
+        <div class="seg" role="tablist" id="travelTabs">
+          <button role="tab" class="on" aria-selected="true" data-tab="train"><svg aria-hidden="true"><use href="#ic-train"/></svg>Train</button>
+          <button role="tab" aria-selected="false" data-tab="air"><svg aria-hidden="true"><use href="#ic-plane"/></svg>Flight</button>
+          <button role="tab" aria-selected="false" data-tab="road"><svg aria-hidden="true"><use href="#ic-bus"/></svg>Road</button>
+        </div>
+        <div class="tab-panel" id="panel-train"></div>
+        <div class="tab-panel" id="panel-air" hidden></div>
+        <div class="tab-panel" id="panel-road" hidden></div>
+        <p class="links" id="usefulLinks"></p>
 
-    <section id="faq" class="section">
-      <h2 class="section-title">FAQ</h2>
-      <div class="faq" id="faqList"></div>
-    </section>
+        <h3 class="small-head">Where to stay</h3>
+        <p class="body-copy" data-bind="stay.text"></p>
+        <div id="hotelList"></div>
+      </section>
 
-    <section id="rsvp" class="section alt">
-      <h2 class="section-title">RSVP</h2>
-      <p class="lead center">Please let us know <span data-bind="rsvpDeadline"></span>, so we can plan your travel, pickup and stay.</p>
+      <!-- ===================== Dress code ===================== -->
+      <section class="sec" id="dress">
+        <h2 class="title">Dress code</h2>
+        <svg class="divider" aria-hidden="true"><use href="#i-divider"/></svg>
+        <p class="hint soft">A colour for each function, if you'd like a hint.</p>
+        <img class="family" src="assets/img/family.webp" alt="A Bengali family seen from behind, in sarees and dhoti-panjabi" width="800" height="642" loading="lazy">
+        <ul class="dress" id="dressList"></ul>
+      </section>
 
-      <form id="rsvpForm" class="rsvp" novalidate>
-        <fieldset>
-          <legend>Your details</legend>
-          <div class="grid-2">
-            <label>Full name *<input name="name" required autocomplete="name"></label>
-            <label>Email *<input name="email" type="email" required autocomplete="email"></label>
-            <label>Phone / WhatsApp *<input name="phone" type="tel" required autocomplete="tel" pattern="[0-9+\s-]{10,15}"></label>
-            <label>You are a guest of
-              <select name="side">
-                <option value="Bride">Bride's family</option>
-                <option value="Groom">Groom's family</option>
-                <option value="Both">Both</option>
-              </select>
+      <!-- ===================== Families + contacts ===================== -->
+      <section class="sec" id="families">
+        <h2 class="title">Our families</h2>
+        <svg class="divider" aria-hidden="true"><use href="#i-divider"/></svg>
+        <p class="hint" data-bind="families.blessings"></p>
+        <p class="caps">Hosted by</p>
+        <p class="family-line" data-bind="hostedBy"></p>
+        <p class="caps soft">Eager to see you</p>
+        <div id="familyNames"></div>
+
+        <h3 class="small-head">Need help? Call us</h3>
+        <ul class="contacts" id="contactList"></ul>
+      </section>
+
+      <!-- ===================== Good to know ===================== -->
+      <section class="sec" id="faq">
+        <h2 class="title">Good to know</h2>
+        <svg class="divider" aria-hidden="true"><use href="#i-divider"/></svg>
+        <div class="weather" id="weather" hidden>
+          <h3 class="small-head">Weather in Balurghat</h3>
+          <p class="hint soft" id="weatherNote"></p>
+          <ul class="wx" id="weatherList"></ul>
+          <p class="credit">Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></p>
+        </div>
+        <div class="faq" id="faqList"></div>
+      </section>
+
+      <!-- ===================== RSVP ===================== -->
+      <section class="sec" id="rsvp">
+        <h2 class="title">Will you join us?</h2>
+        <svg class="divider" aria-hidden="true"><use href="#i-divider"/></svg>
+        <p class="body-copy center">Please let us know how many of you are coming, <span data-bind="rsvpDeadline"></span>, so we can plan your pickup and stay.</p>
+
+        <form id="rsvpForm" class="rsvp" novalidate>
+          <label class="field"><span>Your name</span><input name="name" required autocomplete="name" placeholder="e.g. Rina Das"></label>
+          <div class="pair">
+            <label class="field"><span>Phone or WhatsApp</span><input name="phone" type="tel" required autocomplete="tel" pattern="[0-9+\s-]{10,15}" placeholder="98xxxxxxxx"></label>
+            <label class="field" id="emailField"><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="for your confirmation"></label>
+          </div>
+          <label class="field"><span>You are a guest of</span>
+            <select name="side"><option value="Groom">Groom's family (Roy)</option><option value="Bride">Bride's family (Ghosh)</option><option value="Both">Both families</option></select>
+          </label>
+
+          <fieldset class="field">
+            <legend>Will you attend?</legend>
+            <div class="pills">
+              <label><input type="radio" name="attending" value="Yes" required><span>Yes, I'll be there</span></label>
+              <label><input type="radio" name="attending" value="Maybe"><span>Not sure yet</span></label>
+              <label><input type="radio" name="attending" value="No"><span>Can't make it</span></label>
+            </div>
+          </fieldset>
+
+          <div id="attendingFields" hidden>
+            <div class="stepper-row">
+              <div><b>Adults</b><small>including you</small></div>
+              <div class="stepper"><button type="button" data-step="-1" aria-label="One fewer adult">−</button><input name="adults" type="number" min="1" max="20" value="1" aria-label="Adults"><button type="button" data-step="1" aria-label="One more adult">+</button></div>
+            </div>
+            <div class="stepper-row">
+              <div><b>Children</b><small>under 12</small></div>
+              <div class="stepper"><button type="button" data-step="-1" aria-label="One fewer child">−</button><input name="children" type="number" min="0" max="20" value="0" aria-label="Children"><button type="button" data-step="1" aria-label="One more child">+</button></div>
+            </div>
+            <fieldset class="field">
+              <legend>Functions you'll attend</legend>
+              <div class="pills" id="eventChecks"></div>
+            </fieldset>
+            <label class="field"><span>Food</span>
+              <select name="food"><option>Non-veg</option><option>Veg</option><option>Jain / special</option></select>
             </label>
-          </div>
-        </fieldset>
 
-        <fieldset>
-          <legend>Will you attend? *</legend>
-          <div class="choice-row">
-            <label class="choice"><input type="radio" name="attending" value="Yes" required><span>Yes, I'll be there 🎉</span></label>
-            <label class="choice"><input type="radio" name="attending" value="Maybe"><span>Not sure yet</span></label>
-            <label class="choice"><input type="radio" name="attending" value="No"><span>Sorry, can't make it</span></label>
-          </div>
-        </fieldset>
-
-        <div id="attendingFields" hidden>
-          <fieldset>
-            <legend>Guests</legend>
-            <div class="grid-3">
-              <label>Adults (incl. you)<input name="adults" type="number" min="1" max="20" value="1"></label>
-              <label>Children<input name="children" type="number" min="0" max="20" value="0"></label>
-              <label>Food preference
-                <select name="food"><option>Non-veg</option><option>Veg</option><option>Jain / special</option></select>
-              </label>
-            </div>
-            <p class="field-label">Events you'll attend</p>
-            <div class="check-grid" id="eventChecks"></div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Travel to Balurghat</legend>
-            <div class="grid-2">
-              <label>Mode of travel
-                <select name="travelMode">
-                  <option>Train</option>
-                  <option>Flight + Road</option>
-                  <option>Flight + Train</option>
-                  <option>Bus</option>
-                  <option>Own car / Taxi</option>
-                  <option>Already in Balurghat</option>
-                </select>
-              </label>
-              <label>Arriving at
-                <select name="arrivalPoint">
-                  <option>Balurghat Railway Station</option>
-                  <option>Balurghat Bus Stand</option>
-                  <option>Malda Town Station</option>
-                  <option>Bagdogra Airport</option>
-                  <option>NJP Station</option>
-                  <option>Directly at venue</option>
-                  <option>Other</option>
-                </select>
-              </label>
-              <label>Arrival date<input name="arrivalDate" type="date"></label>
-              <label>Arrival time (approx.)<input name="arrivalTime" type="time"></label>
-              <label>Train / Flight / Bus no.<input name="transportNo" list="trainList" placeholder="e.g. 13161 or 6E-1234"></label>
+            <details class="travel-box" open>
+              <summary>Your travel to Balurghat</summary>
+              <div class="pair">
+                <label class="field"><span>Coming by</span>
+                  <select name="travelMode"><option>Train</option><option>Flight + Road</option><option>Flight + Train</option><option>Bus</option><option>Own car / Taxi</option><option>Already in Balurghat</option></select>
+                </label>
+                <label class="field"><span>Arriving at</span>
+                  <select name="arrivalPoint"><option>Balurghat Railway Station</option><option>Balurghat Bus Stand</option><option>Malda Town Station</option><option>Bagdogra Airport</option><option>NJP Station</option><option>Directly at venue</option><option>Other</option></select>
+                </label>
+                <label class="field"><span>Arrival date</span><input name="arrivalDate" type="date"></label>
+                <label class="field"><span>Arrival time</span><input name="arrivalTime" type="time"></label>
+                <label class="field"><span>Train, flight or bus no.</span><input name="transportNo" list="trainList" placeholder="e.g. 13161"></label>
+                <label class="field"><span>Leaving on</span><input name="departureDate" type="date"></label>
+              </div>
               <datalist id="trainList"></datalist>
-              <label>Departure date<input name="departureDate" type="date"></label>
-            </div>
-            <div class="choice-row">
-              <label class="toggle"><input type="checkbox" name="needPickup" value="Yes"><span>I need pickup</span></label>
-              <label class="toggle"><input type="checkbox" name="needStay" value="Yes"><span>I need accommodation</span></label>
-            </div>
-          </fieldset>
+              <div class="pills">
+                <label><input type="checkbox" name="needPickup" value="Yes"><span>I need pickup</span></label>
+                <label><input type="checkbox" name="needStay" value="Yes"><span>I need a room</span></label>
+              </div>
+            </details>
+          </div>
+
+          <label class="field"><span>A note for Sanu &amp; Mayuri</span><textarea name="message" rows="3" placeholder="Your wishes, or anything we should know"></textarea></label>
+
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn-gold" type="submit" id="rsvpSubmit"></button>
+          <p class="fine" id="rsvpFine"></p>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </section>
+
+      <!-- ===================== Sign-off ===================== -->
+      <footer class="signoff">
+        <svg class="divider" aria-hidden="true"><use href="#i-divider"/></svg>
+        <p class="with-love">With love, the Roy and Ghosh families</p>
+        <svg class="mono-lg" viewBox="0 0 100 100" aria-hidden="true" id="footMono"></svg>
+        <p class="sign-names"><span data-bind="groom"></span> &amp; <span data-bind="bride"></span></p>
+        <p class="tag" data-bind="hashtag"></p>
+        <div class="share">
+          <img id="shareQr" width="132" height="132" alt="QR code that opens this invitation" loading="lazy">
+          <p class="hint soft">Scan to open this invite on another phone, or pass it on.</p>
+          <button class="text-btn gold" type="button" id="shareBtn"><svg aria-hidden="true"><use href="#ic-share"/></svg>Share this invite</button>
         </div>
+      </footer>
+    </div>
+  </div>
 
-        <fieldset>
-          <legend>Message for the couple</legend>
-          <label><textarea name="message" rows="3" placeholder="Your wishes, special needs, anything we should know…"></textarea></label>
-        </fieldset>
-
-        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn btn-primary btn-block" type="submit" id="rsvpSubmit">Send RSVP</button>
-        <p class="form-status" id="formStatus" role="status"></p>
-      </form>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p class="script" data-bind="hashtag"></p>
-    <p>With love, <span data-bind="hostedBy"></span> and family</p>
-  </footer>
-
-  <button class="music-btn" id="musicBtn" hidden aria-label="Play music" aria-pressed="false">♫</button>
+  <button class="music" id="musicBtn" hidden aria-label="Play music" aria-pressed="false"><svg aria-hidden="true"><use href="#ic-music"/></svg></button>
 
   <script src="config.js"></script>
   <script src="assets/app.js"></script>

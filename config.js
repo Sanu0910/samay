@@ -14,6 +14,20 @@ window.WEDDING = {
   brideAddress: "Usha Ghosh Road, Khadimpur, Balurghat",
   hostedBy: "Mr. Mantosh Roy & Mrs. Provati Roy",
   hashtag: "#SanuWedsMayuri",
+  monogram: "SM",
+  city: "Balurghat",
+  // Used for the weather card (Open-Meteo, free, no key)
+  location: { lat: 25.221, lon: 88.777 },
+  // "Our families" section
+  families: {
+    blessings: "With the blessings of our elders",
+    names: ["The Roy family, Khadimpur Bottola", "The Ghosh family, Usha Ghosh Road"],
+  },
+  // Dress code hints: one row per function, three colour swatches each
+  dressCode: [
+    { event: "Biye", bn: "বিয়ে", colors: ["#a3121f", "#c9a24e", "#f7f0e1"], note: "Red and gold: Banarasi sarees and dhoti-panjabi" },
+    { event: "Bou Bhaat", bn: "বৌভাত", colors: ["#7a2e1f", "#c9a24e", "#f7f0e1"], note: "Evening sarees, panjabis and suits" },
+  ],
   // Countdown target. Set the time to the muhurta once known (India offset +05:30).
   weddingDateTime: "2027-02-11T19:00:00+05:30",
   dateLabel: "Thursday, 11 February 2027",
