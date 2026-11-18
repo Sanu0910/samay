@@ -21,9 +21,10 @@
     <defs>
       <linearGradient id="gLeaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7cb85a"/><stop offset=".5" stop-color="#418c39"/><stop offset="1" stop-color="#1f5524"/></linearGradient>
       <radialGradient id="gLeafHi" cx=".35" cy=".3" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+      <radialGradient id="gBindi" cx=".38" cy=".35" r=".7"><stop offset="0" stop-color="#ff4a3d"/><stop offset=".6" stop-color="#d4121c"/><stop offset="1" stop-color="#8e0a12"/></radialGradient>
+      <filter id="fPaint" x="-5%" y="-5%" width="110%" height="110%"><feDropShadow dx="0" dy="1.5" stdDeviation="1" flood-color="#0b2a0e" flood-opacity=".55"/></filter>
       <linearGradient id="gEnv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf7ea"/><stop offset="1" stop-color="#efe1c2"/></linearGradient>
       <linearGradient id="gFlap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6ecd6"/><stop offset="1" stop-color="#fbf4e4"/></linearGradient>
-      <radialGradient id="gSeal" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#c62d28"/><stop offset="1" stop-color="#6e0d16"/></radialGradient>
       <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5df9f"/><stop offset=".5" stop-color="#c99a42"/><stop offset="1" stop-color="#8e6522"/></linearGradient>
 
       <path id="paanP" d="M100 6C128 46 194 86 194 156C194 214 152 248 112 240C106 239 102 236 100 230C98 236 94 239 88 240C48 248 6 214 6 156C6 86 72 46 100 6Z"/>
@@ -50,6 +51,44 @@
 
 
 
+
+    <!-- Shubho Drishti alpana painted on the paan leaf (same frame as paan.webp turned tip-up: 600x796) -->
+    <symbol id="i-alpana" viewBox="0 0 600 796">
+      <g filter="url(#fPaint)" fill="none" stroke="#fffaf0" stroke-linecap="round" stroke-linejoin="round">
+        <!-- tree of leaves rising to the tip -->
+        <path d="M300 372V196" stroke-width="5"/>
+        <path d="M300 128C318 158 318 182 300 198C282 182 282 158 300 128Z" stroke-width="5"/>
+        <circle cx="300" cy="170" r="5" fill="#fffaf0" stroke="none"/>
+        <path d="M300 352C268 344 252 322 260 298C282 304 296 326 300 352ZM300 352C332 344 348 322 340 298C318 304 304 326 300 352Z" stroke-width="5"/>
+        <path d="M300 292C274 286 262 268 268 248C286 253 297 270 300 292ZM300 292C326 286 338 268 332 248C314 253 303 270 300 292Z" stroke-width="5"/>
+        <path d="M300 240C281 235 272 222 276 207C290 211 298 224 300 240ZM300 240C319 235 328 222 324 207C310 211 302 224 300 240Z" stroke-width="4.5"/>
+        <g fill="#fffaf0" stroke="none">
+          <circle cx="246" cy="318" r="4.5"/><circle cx="354" cy="318" r="4.5"/><circle cx="254" cy="262" r="4"/><circle cx="346" cy="262" r="4"/>
+          <circle cx="263" cy="214" r="3.5"/><circle cx="337" cy="214" r="3.5"/><circle cx="300" cy="112" r="4"/>
+        </g>
+        <!-- petal ring around the bindi -->
+        <g transform="translate(300 470)" stroke-width="5">
+          <g id="petal"><path d="M0-54C12-63 12-77 0-88C-12-77-12-63 0-54Z"/><circle cy="-98" r="4.5" fill="#fffaf0" stroke="none"/></g>
+          <use href="#petal" transform="rotate(36)"/><use href="#petal" transform="rotate(72)"/><use href="#petal" transform="rotate(108)"/>
+          <use href="#petal" transform="rotate(144)"/><use href="#petal" transform="rotate(216)"/><use href="#petal" transform="rotate(252)"/>
+          <use href="#petal" transform="rotate(288)"/><use href="#petal" transform="rotate(324)"/>
+          <circle r="44" stroke-width="7" stroke-dasharray="0 13.8"/>
+        </g>
+        <!-- paisley curls either side -->
+        <g id="curl" stroke-width="6">
+          <path d="M196 470C176 436 136 444 140 482C143 512 182 512 180 486C179 470 162 470 162 482"/>
+          <path d="M196 500C182 528 150 540 128 528" stroke-width="4.5"/>
+          <g fill="#fffaf0" stroke="none"><circle cx="160" cy="428" r="4.5"/><circle cx="134" cy="446" r="4"/><circle cx="118" cy="474" r="3.5"/><circle cx="112" cy="530" r="3.5"/></g>
+        </g>
+        <use href="#curl" transform="translate(600 0) scale(-1 1)"/>
+        <!-- down to the stem -->
+        <path d="M300 576V648" stroke-width="8" stroke-dasharray="0 14"/>
+        <path d="M300 656C309 668 309 680 300 688C291 680 291 668 300 656Z" stroke-width="4.5"/>
+      </g>
+      <!-- the red bindi -->
+      <circle cx="300" cy="470" r="30" fill="url(#gBindi)" stroke="#fffaf0" stroke-width="5"/>
+      <ellipse cx="290" cy="458" rx="9" ry="6" fill="#fff" opacity=".55"/>
+    </symbol>
 
     <!-- Section divider: gold scrolls, two paan leaves and a lotus -->
     <symbol id="i-divider" viewBox="0 0 240 40">
@@ -129,9 +168,8 @@
             <path d="M0 4Q0 0 6 0H294Q300 0 300 4L157 119Q150 124 143 119Z" fill="url(#gFlap)" stroke="#dcc8a0" stroke-width="1"/>
             <path d="M14 6H286L150 112Z" fill="none" stroke="#c9a24e" stroke-width=".8"/>
           </svg>
-          <button class="paan paan-l" id="paanL" aria-label="Open the invitation"><img src="assets/img/paan.webp" alt="" width="600" height="796"></button>
-          <button class="paan paan-r" id="paanR" tabindex="-1" aria-hidden="true"><img src="assets/img/paan.webp" alt="" width="600" height="796"></button>
-          <svg class="seal" viewBox="0 0 100 100" id="sealMono" aria-hidden="true"></svg>
+          <button class="paan paan-r" id="paanR" tabindex="-1" aria-hidden="true"><img src="assets/img/paan.webp" alt="" width="600" height="796"><svg class="alpana" viewBox="0 0 600 796" aria-hidden="true"><use href="#i-alpana"/><text x="198" y="602" lang="bn" transform="rotate(8 198 602)">সাত পাকে<tspan x="206" dy="38">বাঁধা</tspan></text></svg></button>
+          <button class="paan paan-l" id="paanL" aria-label="Open the invitation"><img src="assets/img/paan.webp" alt="" width="600" height="796"><svg class="alpana" viewBox="0 0 600 796" aria-hidden="true"><use href="#i-alpana"/><text x="402" y="616" lang="bn" transform="rotate(-8 402 616)">শুভদৃষ্টি</text></svg></button>
         </div>
 
         <div class="still-life" aria-hidden="true">
@@ -140,7 +178,7 @@
           <img class="tuberose t4" src="assets/img/tuberose.webp" alt="" width="500" height="750">
         </div>
       </div>
-      <p class="tap-hint" id="tapHint">Tap the paan leaves</p>
+      <p class="tap-hint" id="tapHint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Swipe up to open</p>
     </section>
 
     <div class="paper">

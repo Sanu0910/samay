@@ -23,11 +23,6 @@
     <text x="${cx}" y="${cy + r * 0.3}" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="${r * 0.95}" font-weight="500" fill="#7a1222" letter-spacing="-1">${esc(W.monogram || W.groom[0] + W.bride[0])}</text>`;
   $("#archMono").innerHTML = mono(200, 178, 34);
   $("#footMono").innerHTML = mono(50, 50, 44);
-  $("#sealMono").innerHTML = `
-    <circle cx="50" cy="50" r="46" fill="url(#gSeal)"/>
-    <circle cx="50" cy="50" r="40" fill="none" stroke="#e8c56c" stroke-width="2"/>
-    <circle cx="50" cy="50" r="35" fill="none" stroke="#e8c56c" stroke-width=".8" stroke-dasharray="2 3"/>
-    <text x="50" y="61" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="30" font-weight="600" fill="#f3d98f">${esc(W.monogram || W.groom[0] + W.bride[0])}</text>`;
 
   /* ---------- Add to calendar (.ics) ---------- */
   function downloadIcs(items, filename) {
@@ -83,7 +78,29 @@
   placeCard();
   addEventListener("resize", placeCard);
   if (document.fonts) document.fonts.ready.then(placeCard);
-  $(".stage", gate).addEventListener("click", openGate);
+  // Swipe up to open: the leaves follow the finger apart, then slide to the sides if pulled far enough
+  const stage = $(".stage", gate);
+  let startY = null, pulled = 0;
+  stage.addEventListener("pointerdown", (e) => {
+    if (gate.classList.contains("open")) return;
+    startY = e.clientY; pulled = 0; gate.classList.add("dragging");
+    stage.setPointerCapture(e.pointerId);
+  });
+  stage.addEventListener("pointermove", (e) => {
+    if (startY === null) return;
+    pulled = Math.max(0, Math.min(1, (startY - e.clientY) / 180));
+    gate.style.setProperty("--pull", pulled.toFixed(3));
+  });
+  const release = () => {
+    if (startY === null) return;
+    startY = null; gate.classList.remove("dragging");
+    gate.style.setProperty("--pull", 0);
+    // a short tap or a real pull both open it; a small accidental drag springs back
+    if (pulled > 0.22 || pulled < 0.03) openGate();
+  };
+  stage.addEventListener("pointerup", release);
+  stage.addEventListener("pointercancel", () => { startY = null; gate.classList.remove("dragging"); gate.style.setProperty("--pull", 0); });
+  paanL.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openGate(); } });
   reclose.addEventListener("click", (e) => { e.stopPropagation(); closeGate(); });
   // Deep links (e.g. …/#rsvp from a reminder message) skip the cover
   if (location.hash.length > 1 && location.hash !== "#top") {
@@ -355,9 +372,8 @@
     const layer = document.createElement("div");
     layer.className = "flutter"; layer.setAttribute("aria-hidden", "true");
     document.body.appendChild(layer);
-    // Seven butterflies from two photos; hue shifts give pink, orange and magenta ones too
-    const red = "assets/img/butterfly-red.webp", gold = "assets/img/butterfly-gold.webp";
-    const kinds = [[red, 0], [gold, 0], [red, -28], [gold, -18], [red, 0], [gold, 12], [red, -55]];
+    // Seven butterflies, each a different species
+    const kinds = ["red", "gold", "blue", "pink", "green", "cream", "monarch"].map((k) => [`assets/img/butterfly-${k}.webp`, 0]);
     const small = innerWidth < 560;
     const rand = (a, b) => a + Math.random() * (b - a);
     const flies = kinds.map(([src, hue]) => {
