@@ -23,6 +23,11 @@
     <text x="${cx}" y="${cy + r * 0.3}" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="${r * 0.95}" font-weight="500" fill="#7a1222" letter-spacing="-1">${esc(W.monogram || W.groom[0] + W.bride[0])}</text>`;
   $("#archMono").innerHTML = mono(200, 178, 34);
   $("#footMono").innerHTML = mono(50, 50, 44);
+  $("#sealMono").innerHTML = `
+    <circle cx="50" cy="50" r="46" fill="url(#gSeal)"/>
+    <circle cx="50" cy="50" r="40" fill="none" stroke="#e8c56c" stroke-width="2"/>
+    <circle cx="50" cy="50" r="35" fill="none" stroke="#e8c56c" stroke-width=".8" stroke-dasharray="2 3"/>
+    <text x="50" y="61" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="30" font-weight="600" fill="#f3d98f">${esc(W.monogram || W.groom[0] + W.bride[0])}</text>`;
 
   /* ---------- Add to calendar (.ics) ---------- */
   function downloadIcs(items, filename) {
@@ -65,6 +70,19 @@
     gate.classList.remove("open");
     paanL.focus({ preventScroll: true });
   }
+  // Where the card sits inside the lifafa and where it ends up, worked out from the real layout
+  const lifafa = $("#lifafa"), card = $(".card", gate);
+  function placeCard() {
+    const stageH = $(".stage", gate).offsetHeight, envH = lifafa.offsetHeight;
+    const top = Math.max(12, stageH * 0.07) - lifafa.offsetTop;
+    card.style.top = `${top}px`;
+    const center = top + card.offsetHeight / 2;
+    gate.style.setProperty("--dy0", `${envH * 0.52 - center}px`);
+    gate.style.setProperty("--dy1", `${envH * 0.34 - card.offsetHeight * 0.3 - center}px`);
+  }
+  placeCard();
+  addEventListener("resize", placeCard);
+  if (document.fonts) document.fonts.ready.then(placeCard);
   $(".stage", gate).addEventListener("click", openGate);
   reclose.addEventListener("click", (e) => { e.stopPropagation(); closeGate(); });
   // Deep links (e.g. …/#rsvp from a reminder message) skip the cover
@@ -337,16 +355,19 @@
     const layer = document.createElement("div");
     layer.className = "flutter"; layer.setAttribute("aria-hidden", "true");
     document.body.appendChild(layer);
-    const kinds = ["assets/img/butterfly-red.webp", "assets/img/butterfly-gold.webp", "assets/img/butterfly-red.webp"];
-    const count = innerWidth < 560 ? 2 : 3;
+    // Seven butterflies from two photos; hue shifts give pink, orange and magenta ones too
+    const red = "assets/img/butterfly-red.webp", gold = "assets/img/butterfly-gold.webp";
+    const kinds = [[red, 0], [gold, 0], [red, -28], [gold, -18], [red, 0], [gold, 12], [red, -55]];
+    const small = innerWidth < 560;
     const rand = (a, b) => a + Math.random() * (b - a);
-    const flies = kinds.slice(0, count).map((src, i) => {
+    const flies = kinds.map(([src, hue]) => {
       const el = document.createElement("div");
-      const size = Math.round(rand(36, 52));
+      const size = Math.round(small ? rand(26, 42) : rand(32, 50));
       el.className = "bfly";
       // absolute URL: a url() inside a custom property resolves against the stylesheet, not the page
       el.style.setProperty("--img", `url("${new URL(src, location.href).href}")`);
       el.style.setProperty("--size", `${size}px`);
+      el.style.setProperty("--hue", `${hue}deg`);
       el.innerHTML = '<i class="w l"></i><i class="w r"></i>';
       layer.appendChild(el);
       const f = { el, size, x: rand(0, innerWidth), y: rand(innerHeight * .2, innerHeight * .8), vx: 0, vy: 0,

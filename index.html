@@ -21,6 +21,9 @@
     <defs>
       <linearGradient id="gLeaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7cb85a"/><stop offset=".5" stop-color="#418c39"/><stop offset="1" stop-color="#1f5524"/></linearGradient>
       <radialGradient id="gLeafHi" cx=".35" cy=".3" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+      <linearGradient id="gEnv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf7ea"/><stop offset="1" stop-color="#efe1c2"/></linearGradient>
+      <linearGradient id="gFlap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6ecd6"/><stop offset="1" stop-color="#fbf4e4"/></linearGradient>
+      <radialGradient id="gSeal" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#c62d28"/><stop offset="1" stop-color="#6e0d16"/></radialGradient>
       <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5df9f"/><stop offset=".5" stop-color="#c99a42"/><stop offset="1" stop-color="#8e6522"/></linearGradient>
 
       <path id="paanP" d="M100 6C128 46 194 86 194 156C194 214 152 248 112 240C106 239 102 236 100 230C98 236 94 239 88 240C48 248 6 214 6 156C6 86 72 46 100 6Z"/>
@@ -45,32 +48,6 @@
       <path d="M100 230C100 241 98 250 93 260" stroke="#2c5f2a" stroke-width="4.5" stroke-linecap="round" fill="none"/>
     </symbol>
 
-    <!-- Prajapati: the Bengali wedding butterfly, resting on two leaves -->
-    <symbol id="i-prajapati" viewBox="0 0 120 110">
-      <g stroke="#c9973e" stroke-width="1.2" stroke-linejoin="round">
-        <path d="M58 44C46 14 14 6 8 22C2 38 22 52 56 50Z" fill="#b3121f"/>
-        <path d="M62 44C74 14 106 6 112 22C118 38 98 52 64 50Z" fill="#b3121f"/>
-        <path d="M57 52C36 52 20 66 26 80C32 92 50 80 58 58Z" fill="#c4161c"/>
-        <path d="M63 52C84 52 100 66 94 80C88 92 70 80 62 58Z" fill="#c4161c"/>
-      </g>
-      <g fill="#e65356">
-        <path d="M54 44C44 23 23 17 17 27C13 36 26 44 52 46Z"/><path d="M66 44C76 23 97 17 103 27C107 36 94 44 68 46Z"/>
-        <path d="M55 56C41 57 31 66 34 76C39 83 50 73 56 60Z"/><path d="M65 56C79 57 89 66 86 76C81 83 70 73 64 60Z"/>
-      </g>
-      <g fill="#fff4d6">
-        <circle cx="20" cy="26" r="1.8"/><circle cx="27" cy="21" r="1.6"/><circle cx="35" cy="21" r="1.5"/><circle cx="42" cy="25" r="1.4"/>
-        <circle cx="100" cy="26" r="1.8"/><circle cx="93" cy="21" r="1.6"/><circle cx="85" cy="21" r="1.5"/><circle cx="78" cy="25" r="1.4"/>
-        <circle cx="34" cy="74" r="1.5"/><circle cx="40" cy="68" r="1.4"/><circle cx="86" cy="74" r="1.5"/><circle cx="80" cy="68" r="1.4"/>
-      </g>
-      <g fill="#f3c654"><circle cx="30" cy="35" r="3.4"/><circle cx="90" cy="35" r="3.4"/></g>
-      <ellipse cx="60" cy="52" rx="3.4" ry="16" fill="#5a1a12"/>
-      <circle cx="60" cy="35" r="3.6" fill="#5a1a12"/>
-      <path d="M59 33C56 24 51 19 46 19M61 33C64 24 69 19 74 19" stroke="#5a1a12" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-      <circle cx="45.5" cy="19" r="1.8" fill="#5a1a12"/><circle cx="74.5" cy="19" r="1.8" fill="#5a1a12"/>
-      <path d="M60 70C46 70 36 82 40 98C54 96 62 86 60 70Z" fill="url(#gLeaf)"/>
-      <path d="M60 70C74 70 84 82 80 98C66 96 58 86 60 70Z" fill="url(#gLeaf)"/>
-      <path d="M59 73C53 80 47 88 42 96M61 73C67 80 73 88 78 96" stroke="#c6e6a0" stroke-width=".9" fill="none" opacity=".8"/>
-    </symbol>
 
 
 
@@ -127,17 +104,35 @@
       </button>
 
       <div class="stage">
-        <div class="card">
-          <p class="card-invited">You're invited</p>
-          <p class="card-to">to a wedding in <span data-bind="city"></span></p>
-          <svg class="card-fly" aria-hidden="true"><use href="#i-prajapati"/></svg>
-          <p class="card-bn" lang="bn">শুভ বিবাহ</p>
-          <p class="card-names"><span data-bind="groom"></span> <span class="amp">&amp;</span> <span data-bind="bride"></span></p>
-          <p class="card-date" data-bind="dateLabel"></p>
+        <!-- Lifafa: back lining, card inside, front pocket, flap, then the paan leaves and seal on the flap tip -->
+        <div class="lifafa" id="lifafa">
+          <svg class="env-back" viewBox="0 0 300 200" aria-hidden="true">
+            <rect width="300" height="200" rx="6" fill="#7a1222"/>
+            <g fill="#d6a74f" opacity=".55"><circle cx="30" cy="24" r="2"/><circle cx="75" cy="24" r="2"/><circle cx="120" cy="24" r="2"/><circle cx="165" cy="24" r="2"/><circle cx="210" cy="24" r="2"/><circle cx="255" cy="24" r="2"/>
+              <circle cx="52" cy="52" r="2"/><circle cx="97" cy="52" r="2"/><circle cx="142" cy="52" r="2"/><circle cx="187" cy="52" r="2"/><circle cx="232" cy="52" r="2"/><circle cx="277" cy="52" r="2"/></g>
+          </svg>
+          <div class="card">
+            <p class="card-invited">You're invited</p>
+            <p class="card-to">to a wedding in <span data-bind="city"></span></p>
+            <div class="card-fly" aria-hidden="true"><i class="w l"></i><i class="w r"></i></div>
+            <p class="card-bn" lang="bn">শুভ বিবাহ</p>
+            <p class="card-names"><span data-bind="groom"></span> <span class="amp">&amp;</span> <span data-bind="bride"></span></p>
+            <p class="card-date" data-bind="dateLabel"></p>
+          </div>
+          <svg class="env-front" viewBox="0 0 300 200" aria-hidden="true">
+            <path d="M0 0L150 112L300 0V194Q300 200 294 200H6Q0 200 0 194Z" fill="url(#gEnv)"/>
+            <path d="M0 200L128 98M300 200L172 98" stroke="#dcc8a0" stroke-width="1.2" fill="none"/>
+            <path d="M10 10L150 116L290 10V190H10Z" fill="none" stroke="#c9a24e" stroke-width=".8"/>
+            <text x="150" y="176" text-anchor="middle" font-family="Tiro Bangla, serif" font-size="15" fill="#a3121f">শুভ বিবাহ</text>
+          </svg>
+          <svg class="env-flap" viewBox="0 0 300 124" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 4Q0 0 6 0H294Q300 0 300 4L157 119Q150 124 143 119Z" fill="url(#gFlap)" stroke="#dcc8a0" stroke-width="1"/>
+            <path d="M14 6H286L150 112Z" fill="none" stroke="#c9a24e" stroke-width=".8"/>
+          </svg>
+          <button class="paan paan-l" id="paanL" aria-label="Open the invitation"><img src="assets/img/paan.webp" alt="" width="600" height="796"></button>
+          <button class="paan paan-r" id="paanR" tabindex="-1" aria-hidden="true"><img src="assets/img/paan.webp" alt="" width="600" height="796"></button>
+          <svg class="seal" viewBox="0 0 100 100" id="sealMono" aria-hidden="true"></svg>
         </div>
-
-        <button class="paan paan-l" id="paanL" aria-label="Open the invitation"><img src="assets/img/paan.webp" alt="" width="600" height="796"></button>
-        <button class="paan paan-r" id="paanR" tabindex="-1" aria-hidden="true"><img src="assets/img/paan.webp" alt="" width="600" height="796"></button>
 
         <div class="still-life" aria-hidden="true">
           <img class="tuberose t1" src="assets/img/tuberose.webp" alt="" width="500" height="750">
